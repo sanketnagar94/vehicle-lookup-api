@@ -28,7 +28,9 @@ def lookup_vehicle(reg: str = Query(..., alias="reg")):
         page = browser.new_page()
         try:
             page.goto(url, timeout=10000)
-            page.wait_for_timeout(3000)
+            
+            # Wait for main element before scraping
+            page.wait_for_selector("div.card-title h5", timeout=30000)
 
             model = page.locator("div.card-title h5").first.text_content()
             type_ = page.locator("div.card-title + p").first.text_content()
