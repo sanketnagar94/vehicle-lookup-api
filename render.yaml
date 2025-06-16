@@ -8,10 +8,3 @@ services:
     envVars:
       - key: PLAYWRIGHT_BROWSERS_PATH
         value: 0
-      - key: REDIS_HOST
-        value: redis
-      - key: REDIS_PORT
-        value: 6379
-  - type: redis
-    name: redis
-    plan: free
